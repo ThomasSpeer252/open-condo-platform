@@ -8,24 +8,35 @@ Open Source condominium management platform.
 
 You should have `docker-compose`, `git`, `node` and `python3` commands.
 
-> **Node version must be 16.X**. You can check node version using `node -v` command in your terminal.
+## Dependencies
+Python Packages: Django, Psycopg
+Node version must be 16.X**. You can check node version using `node -v` command in your terminal.
 
-```bash
+
 # 1) Clone the repo
+```bash
 git clone git@github.com:open-condo-software/open-condo-platform.git condo
 cd condo
+```
 
 # 2) Install dependencies and link workspaces
+```bash
 yarn
 python3 -m pip install django
 python3 -m pip install psycopg2-binary
+```
 
 # 3) startup redis and postgres
+```bash
 docker-compose up -d postgresdb redis
+```
 
 # 4) create databases for all apps and apps/.env files
+```bash
 node ./bin/prepare.js
+```
 
+```bash
 # 5) launch project
 yarn workspace @app/condo build
 yarn workspace @app/condo start
